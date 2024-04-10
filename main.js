@@ -13,30 +13,42 @@ gsap.to(".navbar-content", {
 
 gsap.fromTo(
   ".title",
-  { x: -100, opacity: 0, filter: "blur(15px)"},
-  { x: 50, duration: 1.5, opacity: 1, filter: "blur(0px)"}
+  { x: -100, opacity: 0, filter: "blur(15px)" },
+  { x: 50, duration: 1.5, opacity: 1, filter: "blur(0px)" }
 );
-
-// gsap.fromTo(
-//   "#heading1",
-//   { x: -100, opacity: 0 },
-//   { x: 0, duration: 0.5, opacity: 1 }
-// );
-// gsap.fromTo(
-//   "#heading2",
-//   { x: 100, opacity: 0 },
-//   { x: 0, duration: 0.5, opacity: 1 }
-// );
-// gsap.fromTo(
-//   "#heading3",
-//   { x: -100, opacity: 0 },
-//   { x: 0, duration: 0.5, opacity: 1 }
-// );
 
 gsap.fromTo(
   ".tbc-bkg-img",
   { opacity: 0, x: 200, filter: "blur(15px)" },
   { opacity: 1.0, x: 0, filter: "blur(0px)", duration: 1.5 }
+);
+
+gsap.fromTo(
+  ".title",
+  {
+    x: 50,
+  },
+  {
+    x: -100,
+    duration: 6,
+    scrollTrigger: {
+      trigger: "#word1",
+      scrub: true,
+    },
+  }
+);
+
+gsap.fromTo(
+  ".tbc-bkg-img",
+  { x: 0 },
+  {
+    x: 200,
+    duration: 6,
+    scrollTrigger: {
+      trigger: "#word1",
+      scrub: true,
+    },
+  }
 );
 
 // Names to cycle through
