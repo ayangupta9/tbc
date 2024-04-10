@@ -12,23 +12,32 @@ gsap.to(".navbar-content", {
 });
 
 gsap.fromTo(
-  "#heading1",
-  { x: -100, opacity: 0 },
-  { x: 0, duration: 0.5, opacity: 1 }
-);
-gsap.fromTo(
-  "#heading2",
-  { x: 100, opacity: 0 },
-  { x: 0, duration: 0.5, opacity: 1 }
-);
-gsap.fromTo(
-  "#heading3",
-  { x: -100, opacity: 0 },
-  { x: 0, duration: 0.5, opacity: 1 }
+  ".title",
+  { x: -100, opacity: 0, filter: "blur(15px)"},
+  { x: 50, duration: 1.5, opacity: 1, filter: "blur(0px)"}
 );
 
-gsap.from(".tbc-bkg-img", { opacity: 0, scale: 0.3 });
-gsap.to(".tbc-bkg-img", { opacity: 1.0, scale: 1, duration: 0.5 });
+// gsap.fromTo(
+//   "#heading1",
+//   { x: -100, opacity: 0 },
+//   { x: 0, duration: 0.5, opacity: 1 }
+// );
+// gsap.fromTo(
+//   "#heading2",
+//   { x: 100, opacity: 0 },
+//   { x: 0, duration: 0.5, opacity: 1 }
+// );
+// gsap.fromTo(
+//   "#heading3",
+//   { x: -100, opacity: 0 },
+//   { x: 0, duration: 0.5, opacity: 1 }
+// );
+
+gsap.fromTo(
+  ".tbc-bkg-img",
+  { opacity: 0, x: 200, filter: "blur(15px)" },
+  { opacity: 1.0, x: 0, filter: "blur(0px)", duration: 1.5 }
+);
 
 // Names to cycle through
 const names = ["Strategy", "Design", "Website", "Branding", "Campaign"];
@@ -38,12 +47,12 @@ const tl = gsap.timeline({
     trigger: ".screen2",
     markers: true,
     start: "top top",
-    end: '300% -100%',
+    end: "300% -100%",
     scrub: 1,
-    toggleActions: 'reverse pause',
+    toggleActions: "reverse pause",
     pin: true,
     pinSpacing: true,
-  }
+  },
 });
 
 // tl.to("#word-1", { opacity: 1, duration: 5, blur: 0}).to('#word-1', {opacity: 0, duration: 5, blur: 5})
@@ -54,14 +63,13 @@ const tl = gsap.timeline({
 
 names.forEach((name, index) => {
   const wordSelector = `#word-${index + 1}`; // Constructing the selector based on the index
-  tl.to(wordSelector, { opacity: 0, filter: 'blur(5px)', duration: 0 }) // Ensure it starts invisible and blurred
-    .to(wordSelector, { opacity: 1, filter: 'blur(0px)', duration: 0.5 }) // Fade in and remove blur
-    .to(wordSelector, { opacity: 1, filter: 'blur(0px)', duration: 1 }, "+=1") // Stay visible and clear
-    .to(wordSelector, { opacity: 0, filter: 'blur(5px)', duration: 0.5 }); // Fade out and apply blur
+  tl.to(wordSelector, { opacity: 0, filter: "blur(5px)", duration: 0 }) // Ensure it starts invisible and blurred
+    .to(wordSelector, { opacity: 1, filter: "blur(0px)", duration: 0.5 }) // Fade in and remove blur
+    .to(wordSelector, { opacity: 1, filter: "blur(0px)", duration: 1 }, "+=1") // Stay visible and clear
+    .to(wordSelector, { opacity: 0, filter: "blur(5px)", duration: 0.5 }); // Fade out and apply blur
 });
 
-
-  // .to('#word-5', {opacity: 0, duration: 10})
+// .to('#word-5', {opacity: 0, duration: 10})
 
 // gsap.to('.screen2', {
 //   scrollTrigger: {
